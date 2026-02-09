@@ -23,3 +23,6 @@ git worktree add -b "$BRANCH_NAME" "$WORKTREE_PATH" "$BASE_BRANCH"
 
 echo "Worktree created at: $WORKTREE_PATH"
 echo "Ready for development!"
+
+cd $WORKTREE_PATH
+code .
