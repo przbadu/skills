@@ -17,23 +17,47 @@ git diff --cached
 
 If nothing is staged, inform the user and stop. Do NOT look at or consider untracked files.
 
-2. **Generate commit message**
+2. **Update memory (if notable changes exist)**
+
+Before generating the commit message, analyze the staged diff for notable changes worth remembering across sessions. Update the project's `MEMORY.md` file if any of the following are present:
+
+- **New files/modules** — new components, services, utilities, or architectural additions
+- **New dependencies** — packages added to package.json, Gemfile, requirements.txt, etc.
+- **API changes** — new or modified endpoints, routes, or external integrations
+- **Configuration changes** — new env vars, config files, build settings
+- **Architectural patterns** — new design patterns, conventions, or structural decisions
+- **Key learnings** — gotchas, workarounds, or constraints discovered during implementation
+
+**How to update:**
+
+- Read the existing `MEMORY.md` from the project's auto memory directory (path shown in system prompt as "persistent auto memory directory")
+- Append or update entries concisely — use bullet points, keep each entry to 1-2 lines
+- Organize by topic (e.g., "## Architecture", "## Dependencies", "## APIs")
+- Remove outdated entries if the staged changes supersede them
+- Keep total file under 200 lines (lines after 200 are truncated in system prompt)
+- Do NOT add entries for trivial changes (typo fixes, formatting, minor refactors)
+
+If no notable changes are detected, skip this step silently.
+
+3. **Generate commit message**
 
 Analyze only the staged diff to produce a concise commit message (1-2 sentences) that describes the "why" not the "what". Use imperative mood (e.g., "Add", "Fix", "Update").
 
-3. **Confirm with user**
+4. **Confirm with user**
 
-Present the generated message and ask the user to confirm before committing. Example:
+Present the generated message and ask the user to confirm before committing. If memory was updated, briefly mention what was recorded. Example:
 
+> Memory updated: added new `git-worktree` skill to Architecture section.
+>
 > Proposed commit message:
 >
-> `Add user authentication endpoint`
+> `Add git-worktree skill for parallel development`
 >
 > Proceed with this commit?
 
 Wait for explicit user approval. If the user provides an alternative message, use that instead.
 
-4. **Commit**
+5. **Commit**
 
 ```bash
 git commit -m "<confirmed message>"

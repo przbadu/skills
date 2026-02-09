@@ -19,7 +19,7 @@ skill-name/
 └── assets/               # Templates, fonts, boilerplate code
 ```
 
-SKILL.md files require YAML frontmatter with `name`, `description`, and `license` fields.
+SKILL.md files require YAML frontmatter with `name` and `description` fields.
 
 ## Key Commands
 
@@ -27,13 +27,10 @@ SKILL.md files require YAML frontmatter with `name`, `description`, and `license
 
 ```bash
 # Initialize a new skill
-python skill-creator/scripts/init_skill.py <skill-name> --path <output-directory>
+python3 skill-creator/scripts/init_skill.py <skill-name> --path <output-directory>
 
-# Package a skill
-python skill-creator/scripts/package_skill.py <path/to/skill-folder>
-
-# Validate a skill
-python skill-creator/scripts/quick_validate.py
+# Package a skill (validates automatically)
+python3 skill-creator/scripts/package_skill.py <path/to/skill-folder>
 ```
 
 ### Per-Skill Helper Scripts
@@ -74,7 +71,8 @@ Office-format skills (docx, pptx, xlsx) share common utilities in their `scripts
 |----------|--------|
 | **Office docs** | docx, pptx, xlsx, pdf |
 | **Visual/creative** | algorithmic-art, canvas-design, frontend-design, theme-factory, slack-gif-creator |
-| **Development** | mcp-builder, web-artifacts-builder, webapp-testing |
+| **Development** | agent-browser, mcp-builder, web-artifacts-builder, webapp-testing |
+| **Git workflow** | commit, git-worktree |
 | **Writing/process** | doc-coauthoring, internal-comms, skill-creator, brand-guidelines |
 
 ## Design Principles for Skills
