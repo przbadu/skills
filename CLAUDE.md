@@ -1,0 +1,85 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+A collection of modular, specialized AI skills that extend Claude's capabilities with domain-specific knowledge, workflows, and tool integrations. Each skill is self-contained and follows a standardized structure. This is not a traditional software project with builds or tests — it is a documentation and reference repository for AI skills.
+
+## Skill Structure
+
+Every skill follows this layout:
+
+```
+skill-name/
+├── SKILL.md              # Core documentation with YAML frontmatter (required)
+├── LICENSE.txt            # License file
+├── scripts/              # Executable helper scripts (Python/JS/Bash)
+├── references/           # Supplementary docs loaded on demand
+└── assets/               # Templates, fonts, boilerplate code
+```
+
+SKILL.md files require YAML frontmatter with `name`, `description`, and `license` fields.
+
+## Key Commands
+
+### Skill Creation & Validation
+
+```bash
+# Initialize a new skill
+python skill-creator/scripts/init_skill.py <skill-name> --path <output-directory>
+
+# Package a skill
+python skill-creator/scripts/package_skill.py <path/to/skill-folder>
+
+# Validate a skill
+python skill-creator/scripts/quick_validate.py
+```
+
+### Per-Skill Helper Scripts
+
+Skills with complex operations provide helper scripts in their `scripts/` directory. Examples:
+
+```bash
+python pdf/scripts/extract_form_structure.py
+python pptx/scripts/add_slide.py
+python xlsx/scripts/recalc.py
+bash web-artifacts-builder/scripts/init-artifact.sh
+bash web-artifacts-builder/scripts/bundle-artifact.sh
+```
+
+### Web App Testing (Playwright)
+
+```bash
+python scripts/with_server.py --server "npm run dev" --port 5173 -- python automation.py
+```
+
+## Architecture
+
+### Progressive Disclosure Model
+
+Skills use a three-tier loading strategy to minimize token usage:
+
+1. **Metadata** (YAML frontmatter) — always visible for routing (~100 words)
+2. **SKILL.md body** — loaded when the skill is triggered (<5k words)
+3. **References/assets** — loaded on demand as Claude needs them
+
+### Shared Utilities
+
+Office-format skills (docx, pptx, xlsx) share common utilities in their `scripts/office/` subdirectories for XML-level document manipulation (unpack, pack, validate).
+
+### Skill Categories
+
+| Category | Skills |
+|----------|--------|
+| **Office docs** | docx, pptx, xlsx, pdf |
+| **Visual/creative** | algorithmic-art, canvas-design, frontend-design, theme-factory, slack-gif-creator |
+| **Development** | mcp-builder, web-artifacts-builder, webapp-testing |
+| **Writing/process** | doc-coauthoring, internal-comms, skill-creator, brand-guidelines |
+
+## Design Principles for Skills
+
+- **Concise**: Only include what Claude doesn't already know
+- **No redundancy**: Information belongs in SKILL.md OR reference files, not both
+- **Appropriate specificity**: Match the degree of freedom to how fragile the task is — tightly constrain error-prone operations, leave creative tasks open
+- **Progressive loading**: Reference files should be linked from SKILL.md with clear guidance on when to load them
