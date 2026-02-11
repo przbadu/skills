@@ -97,7 +97,7 @@ Claude Code discovers skills from `~/.claude/skills/` and hooks from `~/.claude/
 
 ```bash
 # Clone the repo (if you haven't already)
-git clone <repo-url> ~/dev/claude-scripts
+git clone <repo-url> ~/dev/claude-configs
 ```
 
 ### Install skills
@@ -105,14 +105,14 @@ git clone <repo-url> ~/dev/claude-scripts
 Symlink the entire skills directory so all skills are available across every project:
 
 ```bash
-ln -s ~/dev/claude-scripts/skills ~/.claude/skills
+ln -s ~/dev/claude-configs/skills ~/.claude/skills
 ```
 
 To install a single skill instead:
 
 ```bash
 mkdir -p ~/.claude/skills
-ln -s ~/dev/claude-scripts/skills/pdf ~/.claude/skills/pdf
+ln -s ~/dev/claude-configs/skills/pdf ~/.claude/skills/pdf
 ```
 
 ### Install hooks
@@ -120,7 +120,7 @@ ln -s ~/dev/claude-scripts/skills/pdf ~/.claude/skills/pdf
 Symlink the hooks directory so all hooks are shared across systems:
 
 ```bash
-ln -s ~/dev/claude-scripts/hooks ~/.claude/hooks
+ln -s ~/dev/claude-configs/hooks ~/.claude/hooks
 ```
 
 Hooks are referenced by path in `~/.claude/settings.json`. The settings file should point to `~/.claude/hooks/<script>`, which resolves through the symlink to the repo. Example settings.json:

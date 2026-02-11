@@ -8,7 +8,7 @@ A collection of modular, specialized AI skills and hooks that extend Claude's ca
 
 ## Hooks
 
-Version-controlled Claude Code hooks live in `hooks/`. They are symlinked to `~/.claude/hooks/` so `settings.json` can reference them by path. See README.md for setup instructions.
+Version-controlled Claude Code hooks live in `hooks/`. They are symlinked to `~/.claude/hooks/` so `settings.json` can reference them by path. Hooks must be registered in `~/.claude/settings.json` to be active. See README.md for setup instructions.
 
 | Hook | Event | Description |
 |------|-------|-------------|
