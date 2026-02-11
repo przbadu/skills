@@ -1,6 +1,6 @@
-# Claude Code Skills
+# Claude Code Skills & Hooks
 
-A collection of modular, specialized AI skills that extend Claude Code's capabilities with domain-specific knowledge, workflows, and tool integrations.
+A collection of modular, specialized AI skills and hooks that extend Claude Code's capabilities with domain-specific knowledge, workflows, and tool integrations.
 
 ## Available Skills
 
@@ -85,28 +85,62 @@ The **git-worktree** skill requires no extra installation — it uses git's buil
 
 Worktrees are created under `.worktrees/` in your repo root and automatically added to `.gitignore`.
 
+## Available Hooks
+
+| Hook | Event | Description |
+|------|-------|-------------|
+| **on-stop.sh** | Stop | Reads the last assistant message aloud using macOS `say` (text-to-speech) |
+
 ## Installation
 
-Claude Code discovers skills automatically from `~/.claude/skills/`.
+Claude Code discovers skills from `~/.claude/skills/` and hooks from `~/.claude/hooks/`.
 
 ```bash
 # Clone the repo (if you haven't already)
-git clone <repo-url> ~/dev/skills
+git clone <repo-url> ~/dev/claude-scripts
 ```
 
-### Install all skills
+### Install skills
 
-Symlink the entire repo as your global skills directory so all skills are available across every project:
+Symlink the entire skills directory so all skills are available across every project:
 
 ```bash
-ln -s ~/dev/skills ~/.claude/skills
+ln -s ~/dev/claude-scripts/skills ~/.claude/skills
 ```
 
-### Install a single skill
+To install a single skill instead:
 
 ```bash
 mkdir -p ~/.claude/skills
-ln -s ~/dev/skills/pdf ~/.claude/skills/pdf
+ln -s ~/dev/claude-scripts/skills/pdf ~/.claude/skills/pdf
+```
+
+### Install hooks
+
+Symlink the hooks directory so all hooks are shared across systems:
+
+```bash
+ln -s ~/dev/claude-scripts/hooks ~/.claude/hooks
+```
+
+Hooks are referenced by path in `~/.claude/settings.json`. The settings file should point to `~/.claude/hooks/<script>`, which resolves through the symlink to the repo. Example settings.json:
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/on-stop.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
 
 ### Verify installation

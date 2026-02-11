@@ -4,7 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A collection of modular, specialized AI skills that extend Claude's capabilities with domain-specific knowledge, workflows, and tool integrations. Each skill is self-contained and follows a standardized structure. This is not a traditional software project with builds or tests — it is a documentation and reference repository for AI skills.
+A collection of modular, specialized AI skills and hooks that extend Claude's capabilities with domain-specific knowledge, workflows, and tool integrations. Each skill is self-contained and follows a standardized structure. This is not a traditional software project with builds or tests — it is a documentation and reference repository for AI skills and hooks.
+
+## Hooks
+
+Version-controlled Claude Code hooks live in `hooks/`. They are symlinked to `~/.claude/hooks/` so `settings.json` can reference them by path. See README.md for setup instructions.
+
+| Hook | Event | Description |
+|------|-------|-------------|
+| `on-stop.sh` | Stop | Text-to-speech readout of last assistant message (macOS `say`) |
 
 ## Skill Structure
 
