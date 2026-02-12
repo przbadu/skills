@@ -23,8 +23,13 @@ A collection of modular, specialized AI skills and hooks that extend Claude Code
 | **mcp-builder** | Guide for building Model Context Protocol (MCP) servers |
 | **pdf** | PDF processing: merge, split, extract, fill forms, OCR |
 | **perf-monitor** | Daily production performance monitoring, diagnosis, and auto-fix via Chrome (New Relic, Logtails, PGHero, Airbrake) |
+| **postgres-schema-design** | PostgreSQL table design reference: data types, indexing, constraints, performance patterns |
 | **pptx** | PowerPoint presentation creation and editing |
 | **pr-review-fixer** | Review and fix GitHub PR code review comments |
+| **react-dev** | React TypeScript patterns for React 18-19: hooks, events, Server Components, routing |
+| **react-patterns** | Modern React patterns: hooks, composition, performance, TypeScript best practices |
+| **react-ui-patterns** | React UI patterns for loading states, error handling, and data fetching |
+| **react-useeffect** | useEffect best practices: when NOT to use Effects, better alternatives |
 | **skill-creator** | Meta-skill for creating new skills |
 | **slack-gif-creator** | Create animated GIFs optimized for Slack |
 | **theme-factory** | Apply professional themes to artifacts |
