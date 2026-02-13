@@ -30,6 +30,7 @@ A collection of modular, specialized AI skills and hooks that extend Claude Code
 | **react-patterns** | Modern React patterns: hooks, composition, performance, TypeScript best practices |
 | **react-ui-patterns** | React UI patterns for loading states, error handling, and data fetching |
 | **react-useeffect** | useEffect best practices: when NOT to use Effects, better alternatives |
+| **remotion-best-practices** | Best practices for Remotion — video creation in React (animations, audio, captions, transitions, 3D) |
 | **skill-creator** | Meta-skill for creating new skills |
 | **slack-gif-creator** | Create animated GIFs optimized for Slack |
 | **theme-factory** | Apply professional themes to artifacts |
@@ -153,6 +154,15 @@ To install a single skill instead:
 ```bash
 mkdir -p ~/.claude/skills
 ln -s ~/dev/claude-configs/skills/pdf ~/.claude/skills/pdf
+```
+
+### Install via npx (third-party skills)
+
+Some skills can be installed directly using `npx`:
+
+```bash
+# Install the Remotion best-practices skill
+npx skills add remotion-dev/skills
 ```
 
 ### Install hooks

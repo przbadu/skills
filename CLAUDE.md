@@ -81,6 +81,7 @@ Office-format skills (docx, pptx, xlsx) share common utilities in their `scripts
 | **Visual/creative** | algorithmic-art, canvas-design, frontend-design, theme-factory, slack-gif-creator |
 | **Development** | agent-browser, mcp-builder, web-artifacts-builder, webapp-testing |
 | **React/frontend** | react-dev, react-patterns, react-ui-patterns, react-useeffect |
+| **Video/media** | remotion-best-practices |
 | **Database** | postgres-schema-design |
 | **Git workflow** | commit, git-worktree, github-pr, github-autopilot |
 | **Production ops** | perf-monitor, airbrake-fixer, pr-review-fixer, bug-crusher |
